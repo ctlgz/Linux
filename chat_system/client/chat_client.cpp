@@ -5,12 +5,10 @@
 #include "data.h"
 #include "window.h"
 
-
 static void usage(const char *proc)
 {
 	std::cout << "\nUsage:\n\t" << proc << " [server_ip] [server_port]\n" << std::endl;
 }
-
 std::string nick_name;
 std::string school;
 udp_client *cp = NULL;
@@ -19,11 +17,11 @@ std::vector<std::string> friends;
 
 void addUser(const std::string &f)
 {
-	std::vector<std::string>::iterator iter = friends.begin();
-	for(; iter != friends.end(); iter++){
-		if(*iter == f){
+    	std::vector<std::string>::iterator iter = friends.begin();
+	    for(; iter != friends.end(); iter++){
+		 if(*iter == f){
 			return;
-		}
+		 }
 	}
 	friends.push_back(f);
 }
