@@ -16,13 +16,14 @@ static void *runConsume(void *arg)
 	}
 
 }
+
 static void *runProduct(void *arg)
 {
 	udp_server *sp = (udp_server*)arg;
 	std::string outString;
 	while(1){
-		sp->recvData(outString);
-		std::cout << outString << std::endl;
+		 sp->recvData(outString);
+		 std::cout << outString << std::endl;
 	}
 }
 
@@ -40,8 +41,7 @@ int main(int argc, char *argv[])
 	pthread_t c, p;
 	pthread_create(&c, NULL, runConsume, &server);
 	pthread_create(&p, NULL, runProduct, &server);
-
-	pthread_join(c, NULL);
+    pthread_join(c, NULL);
 	pthread_join(p, NULL);
 	return 0;
 }
